@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking the Funnel - Branding + Performance na era da atenção</title>
+    <meta name="description" content="Breaking the Funnel — O livro que propõe o Wormhole Funnel: integrar branding e performance na era da atenção.">
+    <meta name="author" content="João Malossi - Malossi Studio">
+    <link rel="canonical" href="https://malossistudio.com/breaking-the-funnel">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="book">
+    <meta property="og:title" content="Breaking the Funnel - Branding + Performance na era da atenção">
+    <meta property="og:description" content="Breaking the Funnel — O livro que propõe o Wormhole Funnel: integrar branding e performance na era da atenção.">
+    <meta property="og:image" content="./assets/cover.jpg">
+    <meta property="og:url" content="https://malossistudio.com/breaking-the-funnel">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Breaking the Funnel - Branding + Performance na era da atenção">
+    <meta name="twitter:description" content="Breaking the Funnel — O livro que propõe o Wormhole Funnel: integrar branding e performance na era da atenção.">
+    <meta name="twitter:image" content="./assets/cover.jpg">
+
+    <!-- Schema.org Book JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "Breaking the Funnel",
+      "author": {
+        "@type": "Person",
+        "name": "João Malossi",
+        "url": "https://malossistudio.com"
+      },
+      "description": "Breaking the Funnel — O livro que propõe o Wormhole Funnel: integrar branding e performance na era da atenção.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Malossi Studio",
+        "url": "https://malossistudio.com"
+      },
+      "image": "./assets/cover.jpg",
+      "url": "https://malossistudio.com/breaking-the-funnel"
+    }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Critical CSS -->
+    <style>
+        :root {
+            --primary: 240 4% 16%;
+            --primary-foreground: 0 0% 98%;
+            --background: 240 4% 9%;
+            --background-secondary: 240 4% 12%;
+            --foreground: 0 0% 95%;
+            --accent: 45 93% 58%;
+            --accent-foreground: 240 4% 16%;
+            --muted: 0 0% 60%;
+            --muted-foreground: 0 0% 70%;
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.12);
+            --radius: 1rem;
+            --radius-lg: 1.5rem;
+            --radius-xl: 2rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: radial-gradient(circle at 50% 20%, hsl(240 4% 12%) 0%, hsl(240 4% 9%) 50%);
+            color: hsl(var(--foreground));
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-button {
+            backdrop-filter: blur(12px);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            padding: 1rem 2rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-button-primary {
+            background: hsl(var(--accent));
+            color: hsl(var(--accent-foreground));
+            border-color: hsl(var(--accent));
+        }
+
+        .glass-button-primary:hover {
+            background: hsl(var(--accent) / 0.9);
+            box-shadow: 0 0 30px hsl(var(--accent) / 0.3);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, hsl(var(--foreground)), hsl(var(--muted)));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(1deg); }
+            66% { transform: translateY(5px) rotate(-1deg); }
+        }
+
+        .fade-up {
+            animation: fadeUp 0.6s cubic-bezier(0.2, 0.9, 0.2, 1);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+            background: var(--glass-bg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-section img {
+            height: 2rem;
+            width: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 6rem;
+            padding-bottom: 4rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-title {
+                font-size: 3.75rem;
+            }
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: hsl(var(--muted));
+        }
+
+        @media (min-width: 768px) {
+            .hero-subtitle {
+                font-size: 1.875rem;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: hsl(var(--muted-foreground));
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .benefits-list .bullet {
+            width: 0.5rem;
+            height: 0.5rem;
+            background: hsl(var(--accent));
+            border-radius: 50%;
+            margin-top: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .cta-buttons {
+                flex-direction: row;
+            }
+        }
+
+        .book-mockup {
+            text-align: center;
+        }
+
+        .book-image {
+            max-width: 20rem;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .book-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .price-strip {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 1.5rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .max-w-4xl {
+            max-width: 56rem;
+            margin: 0 auto;
+        }
+
+        .max-w-2xl {
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+
+        /* Author section */
+        .author-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .author-grid {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+
+        .author-image {
+            width: 8rem;
+            height: 8rem;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 193, 7, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: hsl(var(--muted));
+        }
+
+        /* Icons */
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+
+        .icon-lg {
+            width: 2rem;
+            height: 2rem;
+        }
+    </style>
+
+    <!-- INSERT GA4 HERE -->
+    <!-- INSERT META PIXEL HERE -->
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="./assets/logo-malossi.png" alt="Malossi Studio">
+                    <span>Malossi Studio</span>
+                </div>
+                <a href="https://loja.uiclap.com/titulo/ua88955/" class="glass-button glass-button-primary" target="_blank" rel="noopener noreferrer">
+                    Garanta seu exemplar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Left Content -->
+                <div class="fade-up">
+                    <h1 class="hero-title">
+                        <span class="text-gradient">Breaking the Funnel</span><br>
+                        <span class="hero-subtitle">Branding + Performance na era da atenção</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        O livro que propõe o <strong style="color: hsl(var(--accent));">Wormhole Funnel</strong>: 
+                        integrar branding e performance na era da atenção.
+                    </p>
+
+                    <!-- Benefits -->
+                    <ul class="benefits-list">
+                        <li>
+                            <div class="bullet"></div>
+                            <span>Como unir branding e performance sem perder dinheiro</span>
+                        </li>
+                        <li>
+                            <div class="bullet"></div>
+                            <span>Estratégias para construir marca e vender ao mesmo tempo</span>
+                        </li>
+                        <li>
+                            <div class="bullet"></div>
+                            <span>Como medir o que realmente importa no marketing moderno</span>
+                        </li>
+                    </ul>
+
+                    <!-- CTA Buttons -->
+                    <div class="cta-buttons">
+                        <a href="https://loja.uiclap.com/titulo/ua88955/" class="glass-button glass-button-primary" target="_blank" rel="noopener noreferrer">
+                            📖 Comprar agora — Envio imediato
+                        </a>
+                        <button class="glass-button">
+                            Leia um trecho grátis
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Content - Book Mockup -->
+                <div class="book-mockup">
+                    <div class="floating-element">
+                        <div class="book-image glass-card">
+                            <img src="./assets/cover.jpg" alt="Breaking the Funnel - Capa do Livro">
+                        </div>
+                        
+                        <!-- Price & Format Strip -->
+                        <div class="price-strip glass-card">
+                            <p style="color: hsl(var(--muted)); font-size: 0.875rem;">Formato Digital</p>
+                            <p style="font-size: 1.5rem; font-weight: 700; color: hsl(var(--accent)); margin: 0.5rem 0;">R$ 29,90</p>
+                            <a href="https://loja.uiclap.com/titulo/ua88955/" class="glass-button glass-button-primary" style="width: 100%; justify-content: center;" target="_blank" rel="noopener noreferrer">
+                                Garantir acesso
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section">
+        <div class="container">
+            <div class="max-w-4xl">
+                <h2 class="section-title text-gradient">
+                    O que está acontecendo com o marketing hoje?
+                </h2>
+                
+                <div class="glass-card card-content" style="margin-bottom: 3rem;">
+                    <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                        Vivemos na <strong style="color: hsl(var(--accent));">era da sobrecarga de informação</strong>. 
+                        Atenção é o ativo mais valioso, e o funil tradicional já não explica o comportamento das pessoas.
+                    </p>
+                    
+                    <div class="grid-3" style="margin-top: 2rem;">
+                        <div class="glass-card card-content text-center">
+                            <div style="color: hsl(var(--accent)); margin-bottom: 1rem;">🎯</div>
+                            <p>As pessoas não seguem mais uma jornada linear</p>
+                        </div>
+                        <div class="glass-card card-content text-center">
+                            <div style="color: hsl(var(--accent)); margin-bottom: 1rem;">📈</div>
+                            <p>O excesso de anúncios dilui o impacto</p>
+                        </div>
+                        <div class="glass-card card-content text-center">
+                            <div style="color: hsl(var(--accent)); margin-bottom: 1rem;">👤</div>
+                            <p>As marcas que não entendem esse cenário perdem relevância</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="https://loja.uiclap.com/titulo/ua88955/" class="glass-button glass-button-primary" target="_blank" rel="noopener noreferrer">
+                        🔗 Descubra a solução
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Section -->
+    <section class="section" style="background: rgba(255, 255, 255, 0.02);">
+        <div class="container">
+            <div class="max-w-4xl">
+                <h2 class="section-title text-gradient">
+                    O que você vai aprender
+                </h2>
+                
+                <div class="grid-2">
+                    <div class="glass-card card-content">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <span style="font-size: 1.5rem; font-weight: 700; color: hsl(var(--accent));">1</span>
+                            <p style="font-size: 1.125rem;">Como funciona a nova lógica da atenção</p>
+                        </div>
+                    </div>
+                    <div class="glass-card card-content">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <span style="font-size: 1.5rem; font-weight: 700; color: hsl(var(--accent));">2</span>
+                            <p style="font-size: 1.125rem;">Estratégias para construir marca e vender ao mesmo tempo</p>
+                        </div>
+                    </div>
+                    <div class="glass-card card-content">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <span style="font-size: 1.5rem; font-weight: 700; color: hsl(var(--accent));">3</span>
+                            <p style="font-size: 1.125rem;">Como medir o que realmente importa</p>
+                        </div>
+                    </div>
+                    <div class="glass-card card-content">
+                        <div style="display: flex; align-items: flex-start; gap: 1rem;">
+                            <span style="font-size: 1.5rem; font-weight: 700; color: hsl(var(--accent));">4</span>
+                            <p style="font-size: 1.125rem;">Exemplos reais e frameworks para aplicar agora</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="section">
+        <div class="container">
+            <div class="max-w-4xl">
+                <h2 class="section-title text-gradient">
+                    O autor
+                </h2>
+                
+                <div class="glass-card card-content">
+                    <div class="author-grid">
+                        <img src="./assets/author.jpg" alt="João - Autor do Breaking the Funnel" class="author-image">
+                        
+                        <div>
+                            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">João Malossi</h3>
+                            <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); line-height: 1.6;">
+                                Trabalho com <strong style="color: hsl(var(--accent));">business intelligence, marketing e design</strong>. 
+                                Minha missão é conectar dados e criatividade para ajudar marcas a crescerem de verdade.
+                            </p>
+                            <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); margin-top: 1rem;">
+                                Este livro nasceu da prática: de erros, acertos e aprendizados reais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" style="background: rgba(255, 255, 255, 0.02);">
+        <div class="container">
+            <div class="max-w-4xl text-center">
+                <h2 class="section-title text-gradient">
+                    O que dizem sobre o livro
+                </h2>
+                
+                <div class="glass-card card-content">
+                    <blockquote style="font-size: 1.5rem; font-style: italic; margin-bottom: 1.5rem;">
+                        "Não é só sobre funil, é sobre como as pessoas realmente decidem hoje."
+                    </blockquote>
+                    <div style="display: flex; justify-content: center; gap: 0.25rem; margin-bottom: 2rem;">
+                        <span style="color: hsl(var(--accent));">⭐</span>
+                        <span style="color: hsl(var(--accent));">⭐</span>
+                        <span style="color: hsl(var(--accent));">⭐</span>
+                        <span style="color: hsl(var(--accent));">⭐</span>
+                        <span style="color: hsl(var(--accent));">⭐</span>
+                    </div>
+                    <p style="color: hsl(var(--muted));">
+                        Escrito por quem vive marketing, design e dados no dia a dia. 
+                        Combina visão estratégica + prática de mercado.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="max-w-2xl text-center">
+                <h2 class="section-title text-gradient">
+                    Comece hoje a entender como funciona a atenção na era digital
+                </h2>
+                
+                <p style="font-size: 1.25rem; color: hsl(var(--muted-foreground)); margin-bottom: 2rem;">
+                    Este livro é para você que quer entender como unir branding e performance sem perder dinheiro.
+                </p>
+                
+                <div style="margin-bottom: 1rem;">
+                    <a href="https://loja.uiclap.com/titulo/ua88955/" class="glass-button glass-button-primary" style="font-size: 1.25rem; padding: 1.5rem 3rem;" target="_blank" rel="noopener noreferrer">
+                        📖 Garanta seu exemplar agora
+                    </a>
+                </div>
+                
+                <p style="font-size: 0.875rem; color: hsl(var(--muted));">
+                    Envio imediato • Pagamento seguro via Uiclap
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p style="font-size: 0.875rem;">
+                © 2024 Malossi Studio. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactions -->
+    <script>
+        // Simple scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for fade-in effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section > .container > *');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.6s cubic-bezier(0.2, 0.9, 0.2, 1)';
+                observer.observe(section);
+            });
+        });
+
+        // Track CTA clicks for analytics
+        document.querySelectorAll('a[href*="uiclap.com"]').forEach(link => {
+            link.addEventListener('click', () => {
+                // Analytics tracking would go here
+                console.log('CTA clicked:', link.textContent.trim());
+            });
+        });
+    </script>
+</body>
+</html>
