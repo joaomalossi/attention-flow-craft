@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ExternalLink, ChevronDown, Star, User, BookOpen, Target, TrendingUp } from 'lucide-react';
+import { ExternalLink, BookOpen, Target, TrendingUp, User } from 'lucide-react';
 const BookLanding = () => {
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -11,7 +11,14 @@ const BookLanding = () => {
       <header className="fixed top-0 left-0 right-0 z-50 glass-card border-0 border-b border-white/5">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <img src="/assets/logo-malossi.png" alt="Malossi Studio" className="h-8 w-auto" />
+            <img 
+              src="/assets/logo-malossi.png" 
+              alt="Malossi Studio" 
+              className="h-8 w-auto"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
             <span className="font-medium text-foreground">Malossi Studio</span>
           </div>
           <a href={ctaUrl} className="glass-button-primary sheen-effect" target="_blank" rel="noopener noreferrer">
@@ -61,7 +68,14 @@ const BookLanding = () => {
           <div className={`relative flex justify-center ${isVisible ? 'animate-fade-up delay-300' : 'opacity-0'}`}>
             <div className="relative floating-element">
               <div className="glass-card p-8 max-w-sm">
-                <img src="/assets/cover.jpg" alt="Breaking the Funnel - Capa do Livro" className="w-full h-auto rounded-lg shadow-2xl" />
+                <img 
+                  src="/assets/cover.jpg" 
+                  alt="Breaking the Funnel - Capa do Livro" 
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                  onError={(e) => {
+                    e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDIwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMzMzIi8+Cjx0ZXh0IHg9IjEwMCIgeT0iMTUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjNjY2IiBmb250LXNpemU9IjE0Ij5DYXBhIGRvIExpdnJvPC90ZXh0Pgo8L3N2Zz4=';
+                  }}
+                />
               </div>
               
               {/* Price & Format Strip */}
@@ -142,7 +156,14 @@ const BookLanding = () => {
           <div className="glass-card p-8">
             <div className="flex flex-col md:flex-row items-center gap-8">
               <div className="flex-shrink-0">
-                <img src="/assets/author.jpg" alt="João - Autor do Breaking the Funnel" className="w-32 h-32 rounded-full object-cover border-2 border-accent/20" />
+                <img 
+                  src="/assets/author.jpg" 
+                  alt="João - Autor do Breaking the Funnel" 
+                  className="w-32 h-32 rounded-full object-cover border-2 border-accent/20"
+                  onError={(e) => {
+                    e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjY0IiBjeT0iNjQiIHI9IjY0IiBmaWxsPSIjNDQ0Ii8+Cjx0ZXh0IHg9IjY0IiB5PSI3MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzc3NyIgZm9udC1zaXplPSIxNCI+QXV0b3I8L3RleHQ+Cjwvc3ZnPg==';
+                  }}
+                />
               </div>
               
               <div className="text-center md:text-left">

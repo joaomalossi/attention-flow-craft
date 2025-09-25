@@ -5,9 +5,23 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "./", // Paths relativos para funcionar em qualquer diretório
   server: {
     host: "::",
     port: 8080,
+  },
+  build: {
+    outDir: "dist",
+    assetsDir: "assets",
+    sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: undefined, // Evita problemas de chunks em deployment simples
+        assetFileNames: "assets/[name].[ext]",
+        chunkFileNames: "assets/[name].js",
+        entryFileNames: "assets/[name].js"
+      }
+    }
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
